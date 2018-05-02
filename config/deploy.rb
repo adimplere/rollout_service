@@ -8,7 +8,7 @@ repository_name = 'rollout_service'
 
 set :user, 'admin'
 set :deploy_to, "/home/admin/apps/#{repository_name}"
-set :repository, "git@github.com:fiverr/#{repository_name}.git"
+set :repository, "git@github.com:adimplere/#{repository_name}.git"
 set :keep_releases, 10
 
 app_root = %x[pwd].strip
@@ -55,7 +55,7 @@ set :shared_paths, ['var', 'log', 'tracker']
 invoke :"deploy:force_unlock"
 
 task :environment do
-  invoke :"rvm:use[#{current_ruby!}@#{current_gemset!}]"
+  invoke :"rvm:use[#{current_ruby!}]"
 end
 
 # Put any custom mkdir's in here for when `mina setup` is ran.
